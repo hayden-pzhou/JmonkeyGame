@@ -18,6 +18,7 @@
             // #1 create a box
             Mesh box = new Box(1,1,1);
 
+
             // #2 创建一个感光材质
             Material mat = new Material(assetManager,"Common/MatDefs/Light/Lighting.j3md");
 
@@ -29,6 +30,9 @@
             // #4 创建一束定向光，并让他斜向下照射，好使我们能过
             DirectionalLight sun = new DirectionalLight();
             sun.setDirection(new Vector3f(-1, -2, -3));
+            /* Configure cam to look at scene */
+//            cam.setLocation(new Vector3f(0, 0, 6f));
+//            cam.lookAt(new Vector3f(0, 0, 6f), Vector3f.ZERO);
 
             flyCam.setMoveSpeed(10);
             // #5 将方块和光源都添加到场景图中
@@ -43,7 +47,6 @@
             // S = VT 匀速运动
             // TODO
             float speed = FastMath.TWO_PI;
-            geometry.move()
             geometry.rotate(0,tpf*speed,0);
         }
 
@@ -52,7 +55,7 @@
             AppSettings settings = new AppSettings(true);
             settings.setTitle("one game");
             settings.setResolution(480,720);
-            settings.setUseInput(false);
+//            settings.setUseInput(false);
             AsteroidsGame app = new AsteroidsGame();
             app.setSettings(settings);
             app.setShowSettings(false);
